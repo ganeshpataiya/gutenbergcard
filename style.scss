@@ -1,0 +1,137 @@
+
+// The class name needs to match the names of the category and block
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i');
+
+.wp-block-cloudblocks-card-section {
+  @mixin breakpoint () {
+    @media(min-width: 768px) {
+      @content;
+    }
+  }
+  padding: 20px;
+  margin: 0 auto;
+  border: solid 1px #eee;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+
+
+  // overlay
+  .bg-overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+  }
+
+  // Content section
+  section {
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+ 
+
+    @include breakpoint() {
+ 
+    }
+
+    &:after {
+      clear: both;
+      display: block;
+      content: " ";
+    }
+  }
+
+  main {
+    font-family: "Roboto Condensed", Impact, Charcoal, sans-serif !important;
+    margin-bottom: 20px;
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+         
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 30px;        
+    }
+    .wp-block-button__link {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 !important;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  .image-feature {
+    display: block;
+    clear: both;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    // border: 4px solid #333;
+    // border-radius: 20px;
+
+    img {
+      border: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // Layout variations
+
+  .image-default {
+    @include breakpoint() {
+      .image-feature {
+        clear: none;
+        margin: 0 auto;
+      }
+      main {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+
+  .image-left {
+    @include breakpoint() {
+      .image-feature {
+        clear: none;
+        margin-left: 0;
+      }
+      main {
+        float: none;
+        width: calc(100% - 300px);
+      }
+    }
+  }
+
+  .image-right {
+    @include breakpoint() {
+      .image-feature {
+        clear: none;
+        margin-right: 0;
+      }
+      main {
+        float: left;
+        width: calc(100% - 300px);
+      }
+    }
+  }
+
+  .image-left, .image-right {
+    @include breakpoint() {
+      main {
+        margin-top: 120px;
+      }
+    }
+  }
+}
